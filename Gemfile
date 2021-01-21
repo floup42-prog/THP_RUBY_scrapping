@@ -2,8 +2,6 @@
 
 gem 'rspec'
 gem 'rufo'
-gem 'rubocop'
-gem 'watir'
-gem 'mechanize'
+gem 'pry'
 gem 'nokogiri'
 gem 'open-uri'

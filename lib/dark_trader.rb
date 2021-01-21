@@ -7,7 +7,7 @@ x = URI.open("https://coinmarketcap.com/").read
 page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/"))
 
 
-name_of_crypto = page.xpath('//tr//td[3]')#/html/body/div[1]/div/div[2]/div/div/div[2]/table/tbody/tr[1]/td[4]/div/a
+name_of_crypto = page.xpath('//tr//td[3]')#/html/body/div[1]/div/div[2]/div/div/div[2]/table/tbody/tr[1]/td[4]/div/a (btc)
 value_of_crypto = page.xpath('//tr//td[4]')
 
 
