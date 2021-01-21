@@ -26,6 +26,7 @@ GEM
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     ntlm-http (0.1.1)
+    open-uri (0.1.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -73,11 +74,13 @@ GEM
     webrobots (0.1.2)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
   mechanize
   nokogiri
+  open-uri
   rspec
   rubocop
   rufo
