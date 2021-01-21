@@ -1,29 +1,30 @@
 require "open-uri"
 require "nokogiri"
 
-x = URI.open("https://www.annuaire-des-mairies.com/val-d-oise.html").read
+
+# x = URI.open("https://www.annuaire-des-mairies.com/val-d-oise.html").read
 
 # sytaxe https://www.youtube.com/watch?v=l8XrtVHKhCE&t
-ressource = Nokogiri::HTML(URI.open("https://www.annuaire-des-mairies.com/val-d-oise.html"))
+page = Nokogiri::HTML(URI.open("https://www.annuaire-des-mairies.com/val-d-oise.html"))
 
 
-puts mail = ressource.css('a.lientxt')
+town_names = page.css('a.lientxt')
 
-tab = []
+town_names_array = []
 
-mail.each do |za|
-   tab << za.text.tr(" ", "-").downcase
+ town_names.each do |za|
+   town_names_array << za.text.tr(" ", "-").downcase
 end
 
-array1 = []
+# puts tab
 
-tab.each do |i|
+# # Get array of all city websites
+town_urls = page.xpath('//a[@class="lientxt"]/@href')
+town_urls_array = []
+town_urls.each do |url|
+town_urls_array.push(url.text.delete_prefix('.').prepend('https://www.annuaire-des-mairies.com'))
+  end
 
-   doc = URI.open("https://www.annuaire-des-mairies.com/95/#{tab}.html").read
 
-   simple = Nokogiri::HTML(URI.open("https://www.annuaire-des-mairies.com/95/#{tab}.html"))
-
-   y = simple.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]')
-   puts array1 << i.text
-
-end
+  x = town_urls_array[2]
+puts  x.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]")
